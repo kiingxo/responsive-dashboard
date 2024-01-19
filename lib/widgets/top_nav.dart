@@ -1,6 +1,7 @@
 import 'package:dashboard/constants/style.dart';
 import 'package:dashboard/helpers/reponsiveness.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'custom_text.dart';
 
@@ -35,11 +36,16 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
               )),
           Expanded(child: Container()),
           IconButton(
-              icon: const Icon(
-                Icons.settings,
-                color: dark,
-              ),
-              onPressed: () {}),
+            icon: const Icon(
+              Icons.settings,
+              color: dark,
+            ),
+            onPressed: () {
+              Get.changeTheme(
+                  Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
+              print("change theme");
+            },
+          ),
           Stack(
             children: [
               IconButton(
